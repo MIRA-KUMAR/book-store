@@ -1,3 +1,4 @@
+.gitignore
 /backend/node_modules
 /backend/config.js
 /backend/package.json
