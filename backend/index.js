@@ -70,7 +70,6 @@ app.post('/books', async (req, res) => {
 });
 
 // Update a book
-
 app.put('/books/:bookid', async(req, res) => {
     try {
         if(!req.body.title &&
@@ -85,6 +84,22 @@ app.put('/books/:bookid', async(req, res) => {
             return res.status(400).send({message: "Unable to update.!"});
         }
         return res.status(200).send({message: "Updated Book successfully!"})
+    }
+    catch(error) {
+        console.log(error.message);
+        return res.status(500).send({message: error.message});
+    }
+});
+
+// Delete a book 
+app.delete('/books/:bookid', async (req, res) => {
+    try {
+        const {bookid} = req.params;
+        const result = await Book.findByIdAndDelete(bookid);
+        if (!result) {
+            return res.status(400).send({message: "Unable to delete.!"});
+        }
+        return res.status(200).send({message: "Deleted Book successfully!"})
     }
     catch(error) {
         console.log(error.message);
