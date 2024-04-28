@@ -14,15 +14,13 @@
 
     `npm i mongoose`
 
-4. Create a book schema and model 
-
-5. Implement CRUD operations
 
 ### Creating Database
 
 1. Create a Database in MongoDB 
 2. Connect to backend with username and password . Add a collection (book-collection)
-3. 
+3. Create a book schema and model 
+4. Implement CRUD operations
 <!-- 
 
 Run the server using nodemon:
