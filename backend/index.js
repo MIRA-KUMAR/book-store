@@ -2,6 +2,7 @@ import express from "express";
 import {PORT, mongoDBURL } from "./config.js"
 import mongoose from "mongoose";
 import booksRoute from "./routes/booksRoute.js";
+import cors from 'cors';
 
 const app = express();
 
@@ -13,6 +14,20 @@ app.get('/', (req, res) => {
 });
 
 app.use('/books', booksRoute);
+
+/*
+CORS - Web security mechanism to protect the domain from unauthorized web browsers to access it.
+*/
+// OPTION 1: To allow all the web browsers or port
+// app.use(cors('*'));
+
+// OPTION 2: Allow only specific browsers/port
+app.use(cors({
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    allowedHeaders: ['Content-Type'],
+    })
+);
 
 mongoose
     .connect(mongoDBURL)

@@ -14,6 +14,9 @@
 
     `npm i mongoose`
 
+4. Install `cors` for security 
+
+    `npm i cors`
 
 ### Creating Database
 
@@ -21,6 +24,7 @@
 2. Connect to backend with username and password . Add a collection (book-collection)
 3. Create a book schema and model 
 4. Implement CRUD operations
+
 <!-- 
 
 Run the server using nodemon:
@@ -33,4 +37,5 @@ Kill the port and restart:
 
     `lsof -ti :5555 | xargs kill`
 
+ CORS - WEB SECURITY - To stop unauthorized browsers from accessing the domains
  -->
